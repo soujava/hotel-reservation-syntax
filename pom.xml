@@ -5,42 +5,36 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>io.helidon.applications</groupId>
-        <artifactId>helidon-se</artifactId>
+        <artifactId>helidon-mp</artifactId>
         <version>4.1.2</version>
         <relativePath/>
     </parent>
-    <groupId>org.soujava.sample</groupId>
+    <groupId>org.soujava.samples</groupId>
     <artifactId>hotel-reservation</artifactId>
     <version>0.0.1</version>
 
-    <properties>
-        <mainClass>org.soujava.sample.hotel.Main</mainClass>
-    </properties>
 
     <dependencies>
         <dependency>
-            <groupId>io.helidon.webserver</groupId>
-            <artifactId>helidon-webserver</artifactId>
+            <groupId>io.helidon.microprofile.bundles</groupId>
+            <artifactId>helidon-microprofile-core</artifactId>
         </dependency>
         <dependency>
-            <groupId>io.helidon.config</groupId>
-            <artifactId>helidon-config-yaml</artifactId>
+            <groupId>io.helidon.microprofile.openapi</groupId>
+            <artifactId>helidon-microprofile-openapi</artifactId>
         </dependency>
         <dependency>
-            <groupId>io.helidon.webserver.observe</groupId>
-            <artifactId>helidon-webserver-observe-health</artifactId>
+            <groupId>io.helidon.microprofile.health</groupId>
+            <artifactId>helidon-microprofile-health</artifactId>
         </dependency>
         <dependency>
-            <groupId>io.helidon.health</groupId>
-            <artifactId>helidon-health-checks</artifactId>
+            <groupId>jakarta.json.bind</groupId>
+            <artifactId>jakarta.json.bind-api</artifactId>
         </dependency>
         <dependency>
-            <groupId>jakarta.json</groupId>
-            <artifactId>jakarta.json-api</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.helidon.http.media</groupId>
-            <artifactId>helidon-http-media-jsonp</artifactId>
+            <groupId>org.glassfish.jersey.media</groupId>
+            <artifactId>jersey-media-json-binding</artifactId>
+            <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>io.helidon.logging</groupId>
@@ -48,18 +42,17 @@
             <scope>runtime</scope>
         </dependency>
         <dependency>
-            <groupId>io.helidon.webserver.observe</groupId>
-            <artifactId>helidon-webserver-observe-metrics</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.helidon.metrics</groupId>
-            <artifactId>helidon-metrics-system-meters</artifactId>
+            <groupId>io.smallrye</groupId>
+            <artifactId>jandex</artifactId>
             <scope>runtime</scope>
         </dependency>
         <dependency>
-            <groupId>io.helidon.webclient</groupId>
-            <artifactId>helidon-webclient</artifactId>
-            <scope>test</scope>
+            <groupId>org.eclipse.microprofile.metrics</groupId>
+            <artifactId>microprofile-metrics-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.helidon.microprofile.metrics</groupId>
+            <artifactId>helidon-microprofile-metrics</artifactId>
         </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
@@ -67,13 +60,13 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>org.hamcrest</groupId>
-            <artifactId>hamcrest-all</artifactId>
+            <groupId>io.helidon.microprofile.testing</groupId>
+            <artifactId>helidon-microprofile-testing-junit5</artifactId>
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>io.helidon.webserver.testing.junit5</groupId>
-            <artifactId>helidon-webserver-testing-junit5</artifactId>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest-all</artifactId>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -86,6 +79,15 @@
                 <executions>
                     <execution>
                         <id>copy-libs</id>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>io.smallrye</groupId>
+                <artifactId>jandex-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>make-index</id>
                     </execution>
                 </executions>
             </plugin>

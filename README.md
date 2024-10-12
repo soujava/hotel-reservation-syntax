@@ -1,6 +1,6 @@
 # hotel-reservation
 
-Sample Helidon SE project that includes multiple REST operations.
+Sample Helidon MP project that includes multiple REST operations.
 
 ## Build and run
 
@@ -36,36 +36,13 @@ curl -X GET http://localhost:8080/greet/Jose
 
 
 
-## Try metrics
-
-```
-# Prometheus Format
-curl -s -X GET http://localhost:8080/observe/metrics
-# TYPE base:gc_g1_young_generation_count gauge
-. . .
-
-# JSON Format
-curl -H 'Accept: application/json' -X GET http://localhost:8080/observe/metrics
-{"base":...
-. . .
-```
-
-
 ## Try health
 
-This example shows the basics of using Helidon SE Health. It uses the
-set of built-in health checks that Helidon provides plus defines a
-custom health check.
-
-Note the port number reported by the application.
-
-Probe the health endpoints:
-
-```bash
-curl -X GET http://localhost:8080/observe/health
-curl -X GET http://localhost:8080/observe/health/ready
 ```
+curl -s -X GET http://localhost:8080/health
+{"outcome":"UP",...
 
+```
 
 
 ## Building a Native Image
@@ -83,26 +60,22 @@ your hardware and operating system. When completed, the executable file will be 
 under the `target` directory and be named after the artifact ID you have chosen during the
 project generation phase.
 
-Make sure you have GraalVM locally installed:
+
+
+## Try metrics
 
 ```
-$GRAALVM_HOME/bin/native-image --version
+# Prometheus Format
+curl -s -X GET http://localhost:8080/metrics
+# TYPE base:gc_g1_young_generation_count gauge
+. . .
+
+# JSON Format
+curl -H 'Accept: application/json' -X GET http://localhost:8080/metrics
+{"base":...
+. . .
 ```
 
-Build the native image using the native image profile:
-
-```
-mvn package -Pnative-image
-```
-
-This uses the helidon-maven-plugin to perform the native compilation using your installed copy of GraalVM. It might take a while to complete.
-Once it completes start the application using the native executable (no JVM!):
-
-```
-./target/hotel-reservation
-```
-
-Yep, it starts fast. You can exercise the application’s endpoints as before.
 
 
 ## Building the Docker Image
