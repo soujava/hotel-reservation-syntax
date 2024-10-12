@@ -18,5 +18,5 @@ public interface Hotel {
     void checkOut(Guest guest);
 
     @Find
-    Optional<Guest> reservation(@By("number") int number);
+    Optional<Guest> reservation(@By(org.soujava.samples.hotel._Room.NUMBER) int number);
 }
