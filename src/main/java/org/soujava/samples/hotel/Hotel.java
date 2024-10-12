@@ -1,5 +1,6 @@
 package org.soujava.samples.hotel;
 
+import jakarta.data.repository.By;
 import jakarta.data.repository.Delete;
 import jakarta.data.repository.Find;
 import jakarta.data.repository.Repository;
@@ -17,5 +18,5 @@ public interface Hotel {
     void checkOut(Guest guest);
 
     @Find
-    Optional<Guest> findByNumber(int number);
+    Optional<Guest> reservation(@By("number") int number);
 }
