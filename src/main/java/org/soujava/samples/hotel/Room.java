@@ -5,6 +5,6 @@ import jakarta.nosql.Entity;
 import jakarta.nosql.Id;
 
 @Entity
-public record Room (@Id int number, @Column Guest guest) {
+public record Room (@Id String number, @Column Guest guest) {
 
 }

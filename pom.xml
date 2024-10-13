@@ -24,7 +24,7 @@
     <dependencies>
         <dependency>
             <groupId>org.eclipse.jnosql.databases</groupId>
-            <artifactId>jnosql-mongodb</artifactId>
+            <artifactId>jnosql-oracle-nosql</artifactId>
             <version>${jnosql.version}</version>
         </dependency>
         <dependency>
