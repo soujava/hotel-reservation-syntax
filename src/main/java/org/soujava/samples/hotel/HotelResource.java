@@ -60,7 +60,7 @@ public class HotelResource {
     public void checkOut(@PathParam("number") int number) {
         LOGGER.info("Check out: " + number);
         var room = hotel.reservation(number)
-                .orElseThrow(() -> new WebApplicationException("Room not found", Response.Status.NOT_FOUND))
+                .orElseThrow(() -> new WebApplicationException("Room not found", Response.Status.NOT_FOUND));
         hotel.checkOut(room);
     }
 }
