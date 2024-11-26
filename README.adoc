@@ -2,6 +2,7 @@
 
 Sample Helidon MP project that includes multiple REST operations.
 
+The article for further references: https://dzone.com/articles/enhancing-domain-driven-design-with-jakarta-data-a
 == Build and run
 
 With JDK21
